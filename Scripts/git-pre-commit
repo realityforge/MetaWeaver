@@ -51,7 +51,7 @@ else
   SOURCE_FILES="$(git diff-index --cached --name-only HEAD | grep -E '^.*\.(cpp|h|cs|uplugin|uproject)$' | tr '\n' ' ')"
   if [ -n "$SOURCE_FILES" ]; then
     echo "Running Source Code Formatter on staged source files: $SOURCE_FILES"
-    $PY Scripts/format.py --verbose  --dry-run $SOURCE_FILES
+    $PY Scripts/format.py --verbose --dry-run $SOURCE_FILES
     if [ $? -ne 0 ]; then
       # shellcheck disable=SC2086
       $PY Scripts/format.py --verbose $SOURCE_FILES
