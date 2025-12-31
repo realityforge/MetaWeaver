@@ -109,7 +109,7 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 
 if (GEditor)
 {
-    if (auto* Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
+    if (auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
     {
         const auto Report = Subsystem->ValidateAsset(Asset);
         // Inspect Report.Issues …
