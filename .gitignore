@@ -3,6 +3,7 @@
 
 # Idea Project files
 /.idea
+/*.iml
 
 # Binary Files
 Binaries/*
