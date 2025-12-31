@@ -82,7 +82,7 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 
 ### Local Lint Checks
 
-Run both repository linters locally before pushing:
+Run repository linters locally before pushing:
 
 ```
 bash Scripts/run_checks.sh
@@ -91,3 +91,4 @@ bash Scripts/run_checks.sh
 The script runs:
 - `Scripts/check_inline_generated_cpp_includes.py` — verifies UE inline-generated include macro placement.
 - `Scripts/check_license_banner.py` — enforces the exact license banner at the top of source files.
+- `Scripts/format.py` — Runs clang-format across the source files.
