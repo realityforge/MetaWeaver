@@ -138,6 +138,14 @@ bash Scripts/run_checks.sh
 The script runs:
 - `Scripts/check_inline_generated_cpp_includes.py` — verifies UE inline-generated include macro placement.
 - `Scripts/check_license_banner.py` — enforces the exact license banner at the top of source files.
+- `Scripts/format.py` — runs clang-format and normalizes file encodings/line endings.
+
+Optional: install a pre-commit hook to run these checks automatically:
+
+```
+cp Scripts/git-pre-commit .git/hooks/pre-commit
+chmod u+x .git/hooks/pre-commit
+```
 
 ## License & Support
 
