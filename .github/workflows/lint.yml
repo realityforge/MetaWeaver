@@ -8,7 +8,7 @@ on:
 
 jobs:
   generated-includes:
-    name: Check inline-generated includes
+    name: Check format, generated-includes presence and license presence in source code.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
