@@ -78,7 +78,7 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 
 ## Contributor Resources
 
-- Review [AGENTS.md](AGENTS.md) for repository guidelines covering layout, build commands, coding style, and review expectations.
+- Review [CONTRIBUTING.md](CONTRIBUTING.md) for repository guidelines covering layout, build commands, coding style, and review expectations.
 
 ### Local Lint Checks
 
