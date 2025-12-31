@@ -9,11 +9,25 @@ root="${here%/Scripts}"
 
 cd "$root"
 
-echo "[lint] Checking inline-generated includes..."
-python3 Scripts/check_inline_generated_cpp_includes.py
+if command -v python3 >/dev/null 2>&1; then
+  PY=python3
+elif command -v python >/dev/null 2>&1; then
+  PY=python
+else
+  PY=""
+fi
 
-echo "[lint] Checking license banners..."
-python3 Scripts/check_license_banner.py
+if [ -z "$PY" ]; then
+  echo "WARN: python not found; skipping python checks" >&2
+else
+  echo "[lint] Checking inline-generated includes..."
+  $PY Scripts/check_inline_generated_cpp_includes.py
+
+  echo "[lint] Checking license banners..."
+  $PY Scripts/check_license_banner.py
+
+  echo "[lint] Checking source code formatting..."
+  $PY Scripts/format.py
+fi
 
 echo "[lint] OK"
-
