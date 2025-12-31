@@ -1,0 +1,11 @@
+# Local patch files
+/patch*.diff
+
+# Idea Project files
+/.idea
+
+# Binary Files
+Binaries/*
+
+# Compiled source files for the engine to use
+Intermediate/*
