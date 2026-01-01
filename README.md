@@ -86,16 +86,10 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 - Copy the repository into `Plugins/MetaWeaver/` in your project (or add as a submodule/subtree), then restart the Editor. Enable the plugin if prompted.
 - Project Settings → MetaWeaver → add your active `MetadataDefinitionSet` assets to “Active Definition Sets”.
 
-## Quick Start
+## User Guides
 
-1. Open the single‑asset tab via Tools → MetaWeaver, or right‑click an asset → Asset Actions → “Edit Metadata…”.
-2. For bulk editing, select multiple assets → Asset Actions → “Bulk Edit Metadata…”.
-3. Pin columns, use typed editors in headers, and Apply/Reset/Remove across the selection.
-4. Editors react to Content Browser selection and definition changes automatically.
-
-Looking for a walkthrough and validation rules?
-- Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](docs/GettingStarted.md)
-- Read Validation for enum rules, required keys, and asset reference constraints: [Validation](docs/Validation.md)
+- Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](Docs/GettingStarted.md)
+- Read Validation for enum rules, required keys, and asset reference constraints: [Validation](Docs/Validation.md)
 
 ## Definition Model
 
