@@ -1,6 +1,6 @@
 # MetaWeaver Unreal Plugin
 
-[![Docs – Getting Started](https://img.shields.io/badge/docs-Getting%20Started-blue)](Docs/GettingStarted.md)
+[![Docs – Getting Started](https://img.shields.io/badge/docs-Getting%20Started-blue)](docs/GettingStarted.md)
 
 Typed, validated, bulk‑editable metadata for the Unreal Editor.
 
@@ -96,8 +96,8 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 4) Editors react to Content Browser selection and definition changes automatically.
 
 Looking for a walkthrough and validation rules?
-- Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](Docs/GettingStarted.md)
-- Read Validation for enum rules, required keys, and asset reference constraints: [Validation](Docs/Validation.md)
+- Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](docs/GettingStarted.md)
+- Read Validation for enum rules, required keys, and asset reference constraints: [Validation](docs/Validation.md)
 
 ## Definition Model
 
