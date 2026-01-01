@@ -1,7 +1,5 @@
 # MetaWeaver Unreal Plugin
 
-[![Docs – Getting Started](https://img.shields.io/badge/docs-Getting%20Started-blue)](docs/GettingStarted.md)
-
 Typed, validated, bulk‑editable metadata for the Unreal Editor.
 
 MetaWeaver is a powerful Unreal Engine plugin for authoring, validating, and bulk‑editing structured metadata on assets. Define typed metadata parameters once, enforce them across asset classes, and edit them through a clean, intuitive editor and matrix view.
