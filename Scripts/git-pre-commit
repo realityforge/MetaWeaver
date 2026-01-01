@@ -17,6 +17,7 @@
 #  - Checks that staged source files are formatted correctly (and re-formats badly formatted files).
 #  - Checks that license banner is present.
 #  - Checks that UE_INLINE_GENERATED_CPP_BY_NAME is present when required.
+#  - Synchronizes documentation files into docs directory.
 #
 # It should be installed via:
 #
@@ -45,6 +46,15 @@ else
   $PY Scripts/check_license_banner.py
   if [ $? -ne 0 ]; then
     echo "Commit aborted: license banner check failed."
+    exit 1
+  fi
+
+  echo "Running documentation sync check"
+  $PY Scripts/sync_documentation_files.py --dry-run
+  if [ $? -ne 0 ]; then
+    echo "Commit aborted: license banner check failed."
+    $PY Scripts/sync_documentation_files.py
+    echo "Commit aborted due to documentation sync inconsistencies. Documentation synchronized, please review and update commit as required."
     exit 1
   fi
 

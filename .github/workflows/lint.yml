@@ -27,3 +27,6 @@ jobs:
 
       - name: Run format check
         run: python3 Scripts/format.py --dry-run
+
+      - name: Run documentation sync check
+        run: python3 Scripts/sync_documentation_files.py --dry-run

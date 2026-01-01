@@ -28,6 +28,9 @@ else
 
   echo "[lint] Checking source code formatting..."
   $PY Scripts/format.py
+
+  echo "[lint] Checking documentation files synchronized..."
+  $PY Scripts/sync_documentation_files.py
 fi
 
 echo "[lint] OK"
