@@ -90,10 +90,10 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 
 ## Quick Start
 
-1) Open the single‑asset tab via Tools → MetaWeaver, or right‑click an asset → Asset Actions → “Edit Metadata…”.
-2) For bulk editing, select multiple assets → Asset Actions → “Bulk Edit Metadata…”.
-3) Pin columns, use typed editors in headers, and Apply/Reset/Remove across the selection.
-4) Editors react to Content Browser selection and definition changes automatically.
+1. Open the single‑asset tab via Tools → MetaWeaver, or right‑click an asset → Asset Actions → “Edit Metadata…”.
+2. For bulk editing, select multiple assets → Asset Actions → “Bulk Edit Metadata…”.
+3. Pin columns, use typed editors in headers, and Apply/Reset/Remove across the selection.
+4. Editors react to Content Browser selection and definition changes automatically.
 
 Looking for a walkthrough and validation rules?
 - Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](docs/GettingStarted.md)
