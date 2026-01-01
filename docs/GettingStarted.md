@@ -3,16 +3,19 @@
 This guide walks through installing MetaWeaver, enabling definition sets, and using the single‑asset and bulk editors.
 
 ## Requirements
+
 - Unreal Engine 5.6+
 - Editor‑only plugin (no runtime modules)
 
 ## Install
-1) Copy the `MetaWeaver` directory into your project’s `Plugins/` folder.
-2) Restart the editor. Ensure the MetaWeaver plugin is enabled.
+
+1. Copy the `MetaWeaver` directory into your project’s `Plugins/` folder.
+1. Restart the editor. Ensure the MetaWeaver plugin is enabled.
 
 ## Configure
-1) Project Settings → MetaWeaver → Active Definition Sets
-2) Add one or more `UMetaWeaverMetadataDefinitionSet` assets that define your metadata keys and types.
+
+1. Project Settings → MetaWeaver → Active Definition Sets
+1. Add one or more `UMetaWeaverMetadataDefinitionSet` assets that define your metadata keys and types.
 
 <figure>
   <img src="Images/ProjectSettings.png" alt="Project Settings window with MetaWeaver section selected, showing an array property called Active Definition Sets containing one UMetaWeaverMetadataDefinitionSet asset.">
@@ -20,15 +23,15 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
   </figure>
 
 ## Single‑Asset Editing
-- In the Content Browser, right‑click an asset → Asset Actions → Edit Metadata…
 
-<figure>
-  <img src="Images/ContextMenu.png" alt="Content Browser context menu open for an asset, Asset Actions submenu expanded showing 'Edit Metadata…' and 'Bulk Edit Metadata…' entries.">
-  <figcaption>Content Browser → Asset Actions</figcaption>
-</figure>
-
-- Edit values using typed controls (Bool, Int, Float, String, Enum, Asset Reference).
-- Inline validation flags missing/invalid values.
+1. In the Content Browser, right‑click an asset → Asset Actions → Edit Metadata…
+    
+    <figure>
+      <img src="Images/ContextMenu.png" alt="Content Browser context menu open for an asset, Asset Actions submenu expanded showing 'Edit Metadata…' and 'Bulk Edit Metadata…' entries.">
+      <figcaption>Content Browser → Asset Actions</figcaption>
+    </figure>
+1. Edit values using typed controls (Bool, Int, Float, String, Enum, Asset Reference).
+1. Inline validation flags missing/invalid values.
 
 <figure>
   <img src="Images/Editor-Single.png" alt="Single‑asset MetaWeaver editor showing a list of metadata keys with typed editors (checkbox for Bool, numeric fields for Int/Float, text box for String, dropdown for Enum, and asset picker for Asset Reference), plus row actions for Show in Content Browser and Open Asset Editor.">
