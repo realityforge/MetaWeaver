@@ -24,7 +24,7 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 
 <figure>
   <img src="Images/ContextMenu.png" alt="Content Browser context menu open for an asset, Asset Actions submenu expanded showing 'Edit Metadata…' and 'Bulk Edit Metadata…' entries.">
-  <figcaption>Content Browser → Asset Actions: capture both “Edit Metadata…” and “Bulk Edit Metadata…” entries for discoverability.</figcaption>
+  <figcaption>Content Browser → Asset Actions</figcaption>
 </figure>
 
 - Edit values using typed controls (Bool, Int, Float, String, Enum, Asset Reference).
