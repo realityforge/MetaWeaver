@@ -16,10 +16,10 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 
 1. Project Settings → MetaWeaver → Active Definition Sets
 1. Add one or more `UMetaWeaverMetadataDefinitionSet` assets that define your metadata keys and types.
-
-<figure>
-  <img src="Images/ProjectSettings.png" alt="Project Settings window with MetaWeaver section selected, showing an array property called Active Definition Sets containing one UMetaWeaverMetadataDefinitionSet asset.">
-  <figcaption>Project Settings → MetaWeaver: add one Definition Sets to “Active Definition Sets”.</figcaption>
+   
+   <figure>
+     <img src="Images/ProjectSettings.png" alt="Project Settings window with MetaWeaver section selected, showing an array property called Active Definition Sets containing one UMetaWeaverMetadataDefinitionSet asset.">
+     <figcaption>Project Settings → MetaWeaver: add schema asset to “Active Definition Sets”.</figcaption>
   </figure>
 
 ## Single‑Asset Editing
@@ -30,6 +30,7 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
       <img src="Images/ContextMenu.png" alt="Content Browser context menu open for an asset, Asset Actions submenu expanded showing 'Edit Metadata…' and 'Bulk Edit Metadata…' entries.">
       <figcaption>Content Browser → Asset Actions</figcaption>
     </figure>
+
 1. Edit values using typed controls (Bool, Int, Float, String, Enum, Asset Reference).
 1. Inline validation flags missing/invalid values.
 
