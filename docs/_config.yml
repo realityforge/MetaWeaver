@@ -1,12 +1,5 @@
-# Ensure community-health docs are processed as pages (even without front matter)
-defaults:
-  - scope:
-      path: ""
-      pattern: "CONTRIBUTING.md"
-    values:
-      layout: null
-  - scope:
-      path: ""
-      pattern: "CODE_OF_CONDUCT.md"
-    values:
-      layout: null
+# Explicitly include these files in processing, otherwise the `jekyll-optional-front-matter` plugin will not include them
+include:
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - LICENSE.md
