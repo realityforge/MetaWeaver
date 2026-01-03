@@ -24,15 +24,41 @@ def main():
             continue
 
         if args.dry_run:
-            if not os.path.exists(dst) or not filecmp.cmp(src, dst, shallow=False):
-                print(f"Out of sync: {src} -> {dst}")
-                success = False
+            # For README.md, compare against the transformed content that will be written.
+            if os.path.basename(src) == "README.md":
+                with open(src, "r", encoding="utf-8") as f:
+                    src_content = f.read()
+                transformed = src_content.replace("(docs/", "(")
+
+                if not os.path.exists(dst):
+                    print(f"Out of sync: {src} -> {dst}")
+                    success = False
+                else:
+                    with open(dst, "r", encoding="utf-8") as f:
+                        dst_content = f.read()
+                    if dst_content != transformed:
+                        print(f"Out of sync: {src} -> {dst}")
+                        success = False
+                    else:
+                        print(f"In sync: {src} -> {dst}")
             else:
-                print(f"In sync: {src} -> {dst}")
+                if not os.path.exists(dst) or not filecmp.cmp(src, dst, shallow=False):
+                    print(f"Out of sync: {src} -> {dst}")
+                    success = False
+                else:
+                    print(f"In sync: {src} -> {dst}")
         else:
             print(f"Copying {src} to {dst}...")
             os.makedirs(os.path.dirname(dst), exist_ok=True)
-            shutil.copy2(src, dst)
+            # For README.md, write transformed content; else do a direct copy.
+            if os.path.basename(src) == "README.md":
+                with open(src, "r", encoding="utf-8") as f:
+                    content = f.read()
+                content = content.replace("(docs/", "(")
+                with open(dst, "w", encoding="utf-8", newline="") as f:
+                    f.write(content)
+            else:
+                shutil.copy2(src, dst)
 
     if not success:
         if args.dry_run:

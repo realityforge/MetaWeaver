@@ -137,7 +137,7 @@ The script runs:
 - `Scripts/check_inline_generated_cpp_includes.py` - verifies UE inline-generated include macro placement.
 - `Scripts/check_license_banner.py` - enforces the exact license banner at the top of source files.
 - `Scripts/format.py` - runs clang-format and normalizes file encodings/line endings.
-- `Scripts/sync_documentation_files.py` - copies documentation files from base directory into the `docs/` folder.
+- `Scripts/sync_documentation_files.py` - copies documentation files into `docs/` and normalizes README links (replaces `(docs/` with `(`).
 
 Optional: install a pre-commit hook to run these checks automatically:
 
