@@ -1,0 +1,12 @@
+# Navigation items for site TOC
+# Order determines display order
+- title: Home
+  path: index.md
+- title: Getting Started
+  path: GettingStarted.md
+- title: FAQ
+  path: FAQ.md
+- title: Validation
+  path: Validation.md
+- title: Changelog
+  path: Changelog.md

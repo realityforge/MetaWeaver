@@ -1,5 +1,17 @@
-# Explicitly include these files in processing, otherwise the `jekyll-optional-front-matter` plugin will not include them
+# GitHub Pages config for docs site
+
+# Ensure special Markdown files are processed
 include:
   - CONTRIBUTING.md
   - CODE_OF_CONDUCT.md
   - LICENSE.md
+
+# Apply a layout to all pages (even without front matter)
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Use GitHub Flavored Markdown
+markdown: GFM

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} · {% endif %}MetaWeaver</title>
+    <style>
+      :root { --maxw: 900px; --pad: 16px; }
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.55; }
+      .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+      header { padding: 1rem 0 0; }
+      header h1 { font-size: 1.25rem; margin: 0 0 .25rem; }
+      main { padding: 1rem 0 2rem; }
+      footer { color: #6b7280; border-top: 1px solid #e5e7eb; padding: 1rem 0; font-size: 0.9rem; }
+      @media (prefers-color-scheme: dark) {
+        footer { border-top-color: #374151; color: #9ca3af; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><a href="{{ '/' | relative_url }}" style="text-decoration:none;color:inherit">MetaWeaver</a></h1>
+        {% include site_toc.html %}
+      </header>
+      <main>
+        {{ content }}
+      </main>
+      <footer>
+        <div>© {{ site.time | date: '%Y' }} MetaWeaver</div>
+      </footer>
+    </div>
+  </body>
+  </html>

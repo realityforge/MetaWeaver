@@ -1,0 +1,25 @@
+<nav class="site-toc" aria-label="Site">
+  <ul>
+    {%- assign current = page.path | replace: 'docs/', '' -%}
+    {%- assign current_html = current | replace: '.md', '.html' -%}
+    {%- for item in site.data.nav -%}
+      {%- assign item_html = item.path | replace: '.md', '.html' -%}
+      {%- assign href = item_html | relative_url -%}
+      <li>
+        <a href="{{ href }}"{%- if item_html == current_html -%} aria-current="page" class="active"{%- endif -%}>{{ item.title }}</a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+
+<style>
+.site-toc { margin: 0 0 1.25rem 0; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; }
+.site-toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; }
+.site-toc a { text-decoration: none; color: #0366d6; }
+.site-toc a:hover { text-decoration: underline; }
+.site-toc a.active { font-weight: 600; }
+@media (prefers-color-scheme: dark) {
+  .site-toc { border-bottom-color: #374151; }
+  .site-toc a { color: #58a6ff; }
+}
+</style>
