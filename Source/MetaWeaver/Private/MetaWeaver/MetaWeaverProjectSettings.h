@@ -28,6 +28,9 @@ class UMetaWeaverProjectSettings : public UDeveloperSettings
 
 public:
     /** Definition sets aggregated to validate asset metadata. Order applies; later sets may override earlier ones. */
-    UPROPERTY(EditDefaultsOnly, Config, Category = "Validation")
+    UPROPERTY(EditDefaultsOnly,
+              Config,
+              Category = "Validation",
+              meta = (DisplayThumbnail = "false", ForceShowPluginContent = "true"))
     TArray<TSoftObjectPtr<UMetaWeaverMetadataDefinitionSet>> ActiveDefinitionSets;
 };

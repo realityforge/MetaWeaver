@@ -104,7 +104,9 @@ class UMetaWeaverMetadataDefinitionSet final : public UDataAsset
 
 public:
     /** MetadataDefinitionSets that are aggregated into this asset. */
-    UPROPERTY(EditDefaultsOnly, Category = "MetaWeaver")
+    UPROPERTY(EditDefaultsOnly,
+              Category = "MetaWeaver",
+              meta = (DisplayThumbnail = "false", ForceShowPluginContent = "true"))
     TArray<TSoftObjectPtr<UMetaWeaverMetadataDefinitionSet>> MetadataDefinitionSets;
 
     /** Metadata structure that declares parameters applicable to specific classes. */
