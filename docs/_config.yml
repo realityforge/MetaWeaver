@@ -1,0 +1,28 @@
+# GitHub Pages / Jekyll configuration for docs site
+
+# Enable plugins available on GitHub Pages
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-relative-links
+
+# Rewrite links to .md -> .html in rendered pages
+relative_links:
+  enabled: true
+  collections: true
+
+# Ensure community-health docs are processed as pages (even without front matter)
+defaults:
+  - scope:
+      path: ""
+      pattern: "CONTRIBUTING.md"
+    values:
+      layout: null
+  - scope:
+      path: ""
+      pattern: "CODE_OF_CONDUCT.md"
+    values:
+      layout: null
+
+# Use GitHub Flavored Markdown
+markdown: GFM
