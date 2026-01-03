@@ -148,5 +148,5 @@ chmod u+x .git/hooks/pre-commit
 
 ## License & Support
 
-- License: Apache 2.0 (see `LICENSE`)
+- License: Apache 2.0 (see [LICENSE](LICENSE))
 - Support and issues: open a ticket on GitHub Issues
