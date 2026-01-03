@@ -5,7 +5,7 @@ import sys
 import filecmp
 
 def main():
-    parser = argparse.ArgumentParser(description="Sync README and LICENSE to docs folder.")
+    parser = argparse.ArgumentParser(description="Sync documentation files to the docs folder.")
     parser.add_argument("--dry-run", action="store_true", help="Check if files are in sync without copying.")
     args = parser.parse_args()
 
@@ -14,6 +14,8 @@ def main():
     tasks = [
         ("README.md", "docs/index.md"),
         ("LICENSE", "docs/LICENSE"),
+        ("CONTRIBUTING.md", "docs/CONTRIBUTING.md"),
+        ("CODE_OF_CONDUCT.md", "docs/CODE_OF_CONDUCT.md"),
     ]
 
     success = True
