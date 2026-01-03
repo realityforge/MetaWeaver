@@ -1098,7 +1098,7 @@ void SMetaWeaverEditor::RefreshValidation()
 
     if (const auto Asset = ResolveFirstAsset())
     {
-        if (const auto Subsystem = GEditor ? GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>() : nullptr)
+        if (const auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
         {
             auto Report = Subsystem->ValidateAsset(Asset);
             for (const FMetaWeaverIssue& Issue : Report.Issues)
