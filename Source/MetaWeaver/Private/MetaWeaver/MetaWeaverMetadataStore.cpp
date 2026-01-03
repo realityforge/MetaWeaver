@@ -13,9 +13,8 @@
  */
 #include "MetaWeaverMetadataStore.h"
 #include "Editor.h"
-#include "MetaWeaverAggregation.h"
+#include "MetaWeaver/Validation/MetaWeaverValidationSubsystem.h"
 #include "MetaWeaverMetadataDefinitionSet.h"
-#include "MetaWeaverProjectSettings.h"
 #include "ScopedTransaction.h"
 #include "Subsystems/EditorAssetSubsystem.h"
 #include "UObject/MetaData.h"
@@ -70,16 +69,8 @@ bool FMetaWeaverMetadataStore::ListMetadataTags(const UObject* Asset, TMap<FName
 
 void FMetaWeaverMetadataStore::GatherSpecsForClass(const UClass* Class, TArray<FMetadataParameterSpec>& OutSpecs)
 {
-    OutSpecs.Reset();
-    if (Class)
+    if (const auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
     {
-        if (const auto Settings = GetDefault<UMetaWeaverProjectSettings>())
-        {
-            // Flatten active sets (recursive, cycle-safe) with precedence
-            TArray<UMetaWeaverMetadataDefinitionSet*> OrderedSets;
-            MetaWeaver::Aggregation::FlattenActiveSets(Settings->ActiveDefinitionSets, OrderedSets);
-            // Build effective specs per class from ordered sets
-            MetaWeaver::Aggregation::BuildEffectiveSpecsForClass(Class, OrderedSets, OutSpecs);
-        }
+        Subsystem->GatherSpecsForClass(Class, OutSpecs);
     }
 }

@@ -21,24 +21,17 @@
 #include UE_INLINE_GENERATED_CPP_BY_NAME(MetaWeaverValidationSubsystem)
 
 // ReSharper disable once CppMemberFunctionMayBeStatic
-void UMetaWeaverValidationSubsystem::GatherActiveDefinitionSets(
-    TArray<UMetaWeaverMetadataDefinitionSet*>& OutSets) const
-{
-    OutSets.Reset();
-    if (const auto Settings = GetDefault<UMetaWeaverProjectSettings>())
-    {
-        MetaWeaver::Aggregation::FlattenActiveSets(Settings->ActiveDefinitionSets, OutSets);
-    }
-}
-
-void UMetaWeaverValidationSubsystem::ResolveEffectiveParametersForClass(const UClass* Class,
-                                                                        TArray<FMetadataParameterSpec>& OutSpecs) const
+void UMetaWeaverValidationSubsystem::GatherSpecsForClass(const UClass* Class,
+                                                         TArray<FMetadataParameterSpec>& OutSpecs) const
 {
     OutSpecs.Reset();
     if (Class)
     {
         TArray<UMetaWeaverMetadataDefinitionSet*> OrderedSets;
-        GatherActiveDefinitionSets(OrderedSets);
+        if (const auto Settings = GetDefault<UMetaWeaverProjectSettings>())
+        {
+            MetaWeaver::Aggregation::FlattenActiveSets(Settings->ActiveDefinitionSets, OrderedSets);
+        }
         MetaWeaver::Aggregation::BuildEffectiveSpecsForClass(Class, OrderedSets, OutSpecs);
     }
 }
@@ -145,7 +138,7 @@ FMetaWeaverValidationReport UMetaWeaverValidationSubsystem::ValidateAsset(UObjec
     if (Asset)
     {
         TArray<FMetadataParameterSpec> Specs;
-        ResolveEffectiveParametersForClass(Asset->GetClass(), Specs);
+        GatherSpecsForClass(Asset->GetClass(), Specs);
         ValidateAgainstSpecs(Asset, Specs, Report);
     }
     return Report;
@@ -158,7 +151,7 @@ UMetaWeaverValidationSubsystem::ValidateKeyValue(TSubclassOf<UObject> Class, FNa
     if (Class)
     {
         TArray<FMetadataParameterSpec> Specs;
-        ResolveEffectiveParametersForClass(Class, Specs);
+        GatherSpecsForClass(Class, Specs);
 
         // Perform a direct spec lookup
         for (const auto& Spec : Specs)

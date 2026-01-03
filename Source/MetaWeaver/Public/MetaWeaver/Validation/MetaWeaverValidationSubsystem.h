@@ -18,6 +18,7 @@
 #include "MetaWeaverValidationSubsystem.generated.h"
 
 class UMetaWeaverMetadataDefinitionSet;
+struct FMetadataParameterSpec;
 
 /**
  * Public validation API for other editor modules to consume.
@@ -40,6 +41,8 @@ public:
     UFUNCTION(BlueprintCallable, Category = "MetaWeaver|Validation")
     FMetaWeaverValidationReport ValidateKeyValue(TSubclassOf<UObject> Class, FName Key, const FString& Value) const;
 
+    void GatherSpecsForClass(const UClass* Class, TArray<FMetadataParameterSpec>& OutSpecs) const;
+
     // Notify listeners that definition sets changed; used by asset classes on edits/saves
     void NotifyDefinitionSetsChanged() const;
 
@@ -47,8 +50,6 @@ public:
     FOnDefinitionSetsChanged& GetOnDefinitionSetsChanged() { return DefinitionSetsChangedEvent; }
 
 private:
-    void GatherActiveDefinitionSets(TArray<UMetaWeaverMetadataDefinitionSet*>& OutSets) const;
-    void ResolveEffectiveParametersForClass(const UClass* Class, TArray<struct FMetadataParameterSpec>& OutSpecs) const;
     void ValidateAgainstSpecs(UObject* Asset,
                               const TArray<FMetadataParameterSpec>& Specs,
                               FMetaWeaverValidationReport& OutReport) const;
