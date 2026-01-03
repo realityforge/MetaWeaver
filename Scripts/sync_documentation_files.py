@@ -36,7 +36,7 @@ def main():
 
     if not success:
         if args.dry_run:
-            print("\nError: Documentation files are out of sync. Run 'python Scripts/sync_docs.py' to fix.")
+            print("\nError: Documentation files are out of sync. Run 'python Scripts/sync_documentation_files.py' to fix.")
         sys.exit(1)
 
     if args.dry_run:
