@@ -63,10 +63,8 @@ private:
     // Clean struct before saving
     void PreSave();
 
-#if WITH_EDITOR
     // This is called from FMetaWeaverObjectParameterSet
     EDataValidationResult IsDataValid(FDataValidationContext& Context, const FString& ContextPath) const;
-#endif
 };
 
 /**
@@ -91,10 +89,8 @@ private:
     // Sort certain properties before saving
     void PreSave();
 
-#if WITH_EDITOR
     // This is called from UMetaWeaverMetadataDefinitionSet
     EDataValidationResult IsDataValid(FDataValidationContext& Context, const FString& ContextPath) const;
-#endif
 };
 
 /**
@@ -118,8 +114,6 @@ public:
     // Sort certain properties before saving
     virtual void PreSave(FObjectPreSaveContext SaveContext) override;
 
-#if WITH_EDITOR
     virtual EDataValidationResult IsDataValid(FDataValidationContext& Context) const override;
     virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
-#endif
 };

@@ -19,8 +19,6 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(MetaWeaverMetadataDefinitionSet)
 
-#if WITH_EDITOR
-
 EDataValidationResult FMetadataParameterSpec::IsDataValid(FDataValidationContext& Context,
                                                           const FString& ContextPath) const
 {
@@ -160,8 +158,6 @@ EDataValidationResult UMetaWeaverMetadataDefinitionSet::IsDataValid(FDataValidat
     return Result;
 }
 
-#endif
-
 void FMetadataParameterSpec::PreSave()
 {
     DefaultValue = DefaultValue.TrimStartAndEnd();
@@ -215,7 +211,6 @@ void UMetaWeaverMetadataDefinitionSet::PreSave(const FObjectPreSaveContext SaveC
     }
     Super::PreSave(SaveContext);
 
-#if WITH_EDITOR
     if (GEditor)
     {
         if (const auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
@@ -223,10 +218,8 @@ void UMetaWeaverMetadataDefinitionSet::PreSave(const FObjectPreSaveContext SaveC
             Subsystem->NotifyDefinitionSetsChanged();
         }
     }
-#endif
 }
 
-#if WITH_EDITOR
 void UMetaWeaverMetadataDefinitionSet::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
     Super::PostEditChangeProperty(PropertyChangedEvent);
@@ -238,4 +231,3 @@ void UMetaWeaverMetadataDefinitionSet::PostEditChangeProperty(FPropertyChangedEv
         }
     }
 }
-#endif
