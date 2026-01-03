@@ -88,8 +88,8 @@ MetaWeaver brings powerful metadata tooling into the Unreal Editor — making yo
 
 ## User Guides
 
-- Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](Docs/GettingStarted.md)
-- Read Validation for enum rules, required keys, and asset reference constraints: [Validation](Docs/Validation.md)
+- Read Getting Started for step‑by‑step usage with screenshots: [Getting Started](docs/GettingStarted.md)
+- Read Validation for enum rules, required keys, and asset reference constraints: [Validation](docs/Validation.md)
 
 ## Definition Model
 
