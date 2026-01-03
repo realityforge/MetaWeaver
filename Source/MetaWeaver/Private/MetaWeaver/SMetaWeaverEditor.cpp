@@ -121,8 +121,8 @@ private:
                                                                                   : EVisibility::Collapsed;
                                    })
                                    .Text(FText::FromString(TEXT("*")))
-                                   .ToolTipText(FText::FromString(
-                                       TEXT("Default value exists but has not been saved to this asset.")))];
+                                   .ToolTipText(FText::FromString(TEXT("Default value exists but has not "
+                                                                       "been saved to this asset.")))];
     }
 
     TSharedRef<SWidget> GenerateWidgetForValueColumn()
@@ -279,7 +279,8 @@ private:
                                        .ContentPadding(0)
                                        .IsEnabled_Lambda([Item = Item] {
                                            const auto& DefaultVal = Item->Spec.DefaultValue;
-                                           // Disable if current value exists and matches the default
+                                           // Disable if current value exists and matches the
+                                           // default
                                            return DefaultVal.IsEmpty()
                                                ? Item->bHasTag
                                                : !Item->Value.Equals(DefaultVal, ESearchCase::CaseSensitive);
@@ -866,7 +867,8 @@ FText SMetaWeaverEditor::BuildSelectionSummaryText() const
         case ESelectionViewState::None:
             return FText::FromString(TEXT("No asset selected."));
         case ESelectionViewState::Multiple:
-            return FText::FromString(TEXT("Multiple assets selected — open the Bulk Editor to edit many at once."));
+            return FText::FromString(TEXT("Multiple assets selected — open the Bulk "
+                                          "Editor to edit many at once."));
         case ESelectionViewState::Single:
         default:
             return FText::FromString(FString::Printf(TEXT("1 selected asset — editing.")));
@@ -880,7 +882,8 @@ FText SMetaWeaverEditor::BuildSelectionMessageText() const
         case ESelectionViewState::None:
             return FText::FromString(TEXT("No asset selected."));
         case ESelectionViewState::Multiple:
-            return FText::FromString(TEXT("Multiple assets selected. Open the bulk editor to edit many at once."));
+            return FText::FromString(TEXT("Multiple assets selected. Open the bulk "
+                                          "editor to edit many at once."));
         case ESelectionViewState::Single:
         default:
             return FText();
