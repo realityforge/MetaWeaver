@@ -123,7 +123,7 @@ if (GEditor)
 
 ## Contributor Resources
 
-- Review [CONTRIBUTING.md](CONTRIBUTING.md) for repository guidelines covering layout, build commands, coding style, and review expectations.
+- Review [CONTRIBUTING](CONTRIBUTING.md) for repository guidelines covering layout, build commands, coding style, and review expectations.
 
 ### Local Lint Checks
 
