@@ -13,7 +13,7 @@ def main():
     # Assuming script is in Scripts/ and run from project root
     tasks = [
         ("README.md", "docs/index.md"),
-        ("LICENSE", "docs/LICENSE")
+        ("LICENSE", "docs/LICENSE"),
     ]
 
     success = True
