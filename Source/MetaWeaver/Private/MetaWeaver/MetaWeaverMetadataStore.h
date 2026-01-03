@@ -35,8 +35,4 @@ public:
     static bool ListMetadataTags(const UObject* Asset, TMap<FName, FString>& OutTags);
 
     static void GatherSpecsForClass(const UClass* Class, TArray<FMetadataParameterSpec>& OutSpecs);
-
-private:
-    // Subsystem access
-    static UEditorAssetSubsystem* GetEditorAssetSubsystem();
 };

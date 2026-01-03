@@ -20,14 +20,9 @@
 #include "Subsystems/EditorAssetSubsystem.h"
 #include "UObject/MetaData.h"
 
-UEditorAssetSubsystem* FMetaWeaverMetadataStore::GetEditorAssetSubsystem()
-{
-    return GEditor ? GEditor->GetEditorSubsystem<UEditorAssetSubsystem>() : nullptr;
-}
-
 bool FMetaWeaverMetadataStore::GetMetadataTag(const UObject* Asset, const FName Key, FString& OutValue)
 {
-    if (const auto Subsystem = GetEditorAssetSubsystem())
+    if (const auto Subsystem = GEditor->GetEditorSubsystem<UEditorAssetSubsystem>())
     {
         UObject* MutableAsset = const_cast<UObject*>(Asset);
         OutValue = Subsystem->GetMetadataTag(MutableAsset, Key);
@@ -38,7 +33,7 @@ bool FMetaWeaverMetadataStore::GetMetadataTag(const UObject* Asset, const FName 
 
 bool FMetaWeaverMetadataStore::SetMetadataTag(UObject* Asset, const FName Key, const FString& Value)
 {
-    if (const auto Subsystem = GetEditorAssetSubsystem())
+    if (const auto Subsystem = GEditor->GetEditorSubsystem<UEditorAssetSubsystem>())
     {
         Subsystem->SetMetadataTag(Asset, Key, Value);
         return true;
@@ -48,7 +43,7 @@ bool FMetaWeaverMetadataStore::SetMetadataTag(UObject* Asset, const FName Key, c
 
 bool FMetaWeaverMetadataStore::RemoveMetadataTag(UObject* Asset, const FName Key)
 {
-    if (const auto Subsystem = GetEditorAssetSubsystem())
+    if (const auto Subsystem = GEditor->GetEditorSubsystem<UEditorAssetSubsystem>())
     {
         Subsystem->RemoveMetadataTag(Asset, Key);
         return true;
