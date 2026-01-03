@@ -1101,7 +1101,7 @@ void SMetaWeaverEditor::RefreshValidation()
         if (const auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
         {
             auto Report = Subsystem->ValidateAsset(Asset);
-            for (const FMetaWeaverIssue& Issue : Report.Issues)
+            for (const auto& Issue : Report.Issues)
             {
                 for (const auto& Item : TagItems)
                 {
