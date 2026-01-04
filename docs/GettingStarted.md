@@ -14,6 +14,13 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 
 ## Configure
 
+1. Create one or more `UMetaWeaverMetadataDefinitionSet` assets to define your metadata schema.
+
+   <figure>
+     <img src="Images/MetaDataSchemaAsset.png" alt="A MetaWeaverMetadataDefinitionSet asset that defines metadata schema for the project.">
+     <figcaption>A MetaWeaverMetadataDefinitionSet asset that defines metadata schema for the project</figcaption>
+  </figure>
+
 1. Open `Project Settings → MetaWeaver → Active Definition Sets` and add one or more `UMetaWeaverMetadataDefinitionSet` assets.
    
    <figure>
