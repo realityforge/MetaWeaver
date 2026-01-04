@@ -15,16 +15,6 @@ MetaWeaver validates values against parameter specifications defined in `UMetaWe
 - Asset Reference
   - Can restrict to an allowed base class.
 
-<figure>
-  <img src="Images/Enum-Editor.png" alt="Enum dropdown open in the metadata editor, showing string‑based choices defined in the active definition set; one choice selected.">
-  <figcaption>Enum values are strings from the definition set. Capture a dropdown with several choices to illustrate.</figcaption>
-</figure>
-
-<figure>
-  <img src="Images/AssetRef-Picker.png" alt="Asset Reference picker dialog with a class filter active (e.g., Allowed Class = Material), only compatible assets listed.">
-  <figcaption>Asset Reference type with Allowed Class constraint. Show the picker filtered to the allowed base class.</figcaption>
-</figure>
-
 ## Default Value Canonicalization
 - Default values are canonicalized (trimmed/normalized) to ensure consistent comparison.
 
