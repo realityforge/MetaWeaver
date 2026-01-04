@@ -2,11 +2,6 @@
 
 MetaWeaver validates values against parameter specifications defined in `UMetaWeaverMetadataDefinitionSet`.
 
-<figure>
-  <img src="Images/Inline-Errors.png" alt="A metadata editor (single or bulk) showing an inline error state for a cell or header, with a tooltip explaining the validation error (e.g., missing required key, bad format).">
-  <figcaption>Inline error feedback on commit: capture a clear example of a failed edit and the explanatory tooltip.</figcaption>
-</figure>
-
 ## Parameter Types
 - Bool, Int, Float, String
 - Enum (string list)
