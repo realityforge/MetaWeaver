@@ -58,8 +58,7 @@ namespace MetaWeaver::Aggregation
         OutSets.Reset();
         TSet<const UMetaWeaverMetadataDefinitionSet*> Visited;
 
-        // Precedence: later active sets override earlier. So append expansions in
-        // order.
+        // Precedence: later active sets override earlier. So append expansions in order.
         for (const auto& SoftRoot : ActiveSets)
         {
             if (const auto Root = SoftRoot.LoadSynchronous())
