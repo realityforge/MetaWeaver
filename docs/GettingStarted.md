@@ -32,12 +32,13 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
     </figure>
 
 1. Edit values using typed controls (Bool, Int, Float, String, Enum, Asset Reference).
-1. Inline validation flags missing/invalid values.
 
 <figure>
   <img src="Images/Editor-Single.png" alt="Single‑asset MetaWeaver editor showing a list of metadata keys with typed editors (checkbox for Bool, numeric fields for Int/Float, text box for String, dropdown for Enum, and asset picker for Asset Reference), plus row actions for Show in Content Browser and Open Asset Editor.">
   <figcaption>Single‑asset editor with typed controls and row actions (Show/Open). Include at least one of each type if possible.</figcaption>
 </figure>
+
+1. Inline validation flags missing/invalid values.
 
 ## Bulk Editing (Matrix)
 - Select multiple assets in the Content Browser → Asset Actions → Bulk Edit Metadata…
