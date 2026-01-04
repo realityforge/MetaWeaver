@@ -77,8 +77,3 @@ if (GEditor)
 ## Next Steps
 - See [Validation](Validation.md) for enum/exclusive list semantics and error reporting.
 - See [FAQ](FAQ.md) for common questions and troubleshooting.
-
-<figure>
-  <img src="Images/Inline-Errors.png" alt="A metadata cell showing inline validation error styling and an error tooltip indicating why a commit failed (e.g., missing required key or invalid enum choice).">
-  <figcaption>Inline validation feedback: show a failed commit with visible error state and tooltip explaining the issue.</figcaption>
-</figure>
