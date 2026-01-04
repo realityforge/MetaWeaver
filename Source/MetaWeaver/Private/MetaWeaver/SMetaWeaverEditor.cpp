@@ -346,25 +346,22 @@ SMetaWeaverEditor::~SMetaWeaverEditor()
     }
     if (ContentBrowserSelectionHandle.IsValid())
     {
-        if (FModuleManager::Get().IsModuleLoaded(TEXT("ContentBrowser")))
+        if (const auto Module = FModuleManager::Get().GetModulePtr<FContentBrowserModule>(TEXT("ContentBrowser")))
         {
-            auto& CBModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>(TEXT("ContentBrowser"));
-            CBModule.GetOnAssetSelectionChanged().Remove(ContentBrowserSelectionHandle);
+            Module->GetOnAssetSelectionChanged().Remove(ContentBrowserSelectionHandle);
         }
     }
     if (AssetRemovedHandle.IsValid() || AssetRenamedHandle.IsValid())
     {
-        if (FModuleManager::Get().IsModuleLoaded(TEXT("AssetRegistry")))
+        if (const auto Module = FModuleManager::Get().GetModulePtr<FAssetRegistryModule>(TEXT("AssetRegistry")))
         {
-            const auto& AssetRegistryModule =
-                FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry"));
             if (AssetRemovedHandle.IsValid())
             {
-                AssetRegistryModule.Get().OnAssetRemoved().Remove(AssetRemovedHandle);
+                Module->Get().OnAssetRemoved().Remove(AssetRemovedHandle);
             }
             if (AssetRenamedHandle.IsValid())
             {
-                AssetRegistryModule.Get().OnAssetRenamed().Remove(AssetRenamedHandle);
+                Module->Get().OnAssetRenamed().Remove(AssetRenamedHandle);
             }
         }
     }

@@ -101,30 +101,27 @@ SMetaWeaverBulkEditor::~SMetaWeaverBulkEditor()
     }
     if (AssetRemovedHandle.IsValid() || AssetRenamedHandle.IsValid() || AssetUpdatedHandle.IsValid())
     {
-        if (FModuleManager::Get().IsModuleLoaded(TEXT("AssetRegistry")))
+        if (const auto Module = FModuleManager::Get().GetModulePtr<FAssetRegistryModule>(TEXT("AssetRegistry")))
         {
-            const auto& AssetRegistryModule =
-                FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry"));
             if (AssetRemovedHandle.IsValid())
             {
-                AssetRegistryModule.Get().OnAssetRemoved().Remove(AssetRemovedHandle);
+                Module->Get().OnAssetRemoved().Remove(AssetRemovedHandle);
             }
             if (AssetRenamedHandle.IsValid())
             {
-                AssetRegistryModule.Get().OnAssetRenamed().Remove(AssetRenamedHandle);
+                Module->Get().OnAssetRenamed().Remove(AssetRenamedHandle);
             }
             if (AssetUpdatedHandle.IsValid())
             {
-                AssetRegistryModule.Get().OnAssetUpdated().Remove(AssetUpdatedHandle);
+                Module->Get().OnAssetUpdated().Remove(AssetUpdatedHandle);
             }
         }
     }
     if (ContentBrowserSelectionHandle.IsValid())
     {
-        if (FModuleManager::Get().IsModuleLoaded(TEXT("ContentBrowser")))
+        if (const auto Module = FModuleManager::Get().GetModulePtr<FContentBrowserModule>(TEXT("ContentBrowser")))
         {
-            auto& CBModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>(TEXT("ContentBrowser"));
-            CBModule.GetOnAssetSelectionChanged().Remove(ContentBrowserSelectionHandle);
+            Module->GetOnAssetSelectionChanged().Remove(ContentBrowserSelectionHandle);
         }
     }
     // Persist preferences on teardown
