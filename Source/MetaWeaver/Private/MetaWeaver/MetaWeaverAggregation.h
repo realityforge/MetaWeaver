@@ -71,7 +71,7 @@ namespace MetaWeaver::Aggregation
         UE_LOG(LogMetaWeaver, Verbose, TEXT("Active MetaWeaverDefinitionSets: %d [%s]"), OutSets.Num(), *SetNames);
     }
 
-    inline void BuildEffectiveSpecsForClass(const UClass* Class,
+    inline void GatherSpecsForClassFromSets(const UClass* Class,
                                             const TArray<UMetaWeaverMetadataDefinitionSet*>& OrderedSets,
                                             TArray<FMetadataParameterSpec>& OutSpecs)
     {

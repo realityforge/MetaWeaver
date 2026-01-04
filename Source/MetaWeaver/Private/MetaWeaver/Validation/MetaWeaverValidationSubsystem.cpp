@@ -32,7 +32,7 @@ void UMetaWeaverValidationSubsystem::GatherSpecsForClass(const UClass* Class,
         {
             MetaWeaver::Aggregation::FlattenActiveSets(Settings->ActiveDefinitionSets, OrderedSets);
         }
-        MetaWeaver::Aggregation::BuildEffectiveSpecsForClass(Class, OrderedSets, OutSpecs);
+        MetaWeaver::Aggregation::GatherSpecsForClassFromSets(Class, OrderedSets, OutSpecs);
     }
 }
 
