@@ -72,7 +72,9 @@ namespace MetaWeaver::Aggregation
                                             const TArray<UMetaWeaverMetadataDefinitionSet*>& OrderedSets,
                                             TArray<FMetadataParameterSpec>& OutSpecs)
     {
-        check(Class) OutSpecs.Reset();
+        check(Class);
+
+        OutSpecs.Reset();
         TMap<FName, FMetadataParameterSpec> ByKey;
         for (const auto Set : OrderedSets)
         {
