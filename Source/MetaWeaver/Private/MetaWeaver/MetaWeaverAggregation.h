@@ -66,6 +66,9 @@ namespace MetaWeaver::Aggregation
                 GatherIncludedSetsRecursive(Root, OutSets, Visited);
             }
         }
+
+        const auto SetNames = FString::JoinBy(OutSets, TEXT(", "), [](auto Set) { return Set->GetName(); });
+        UE_LOG(LogMetaWeaver, Verbose, TEXT("Active MetaWeaverDefinitionSets: %d [%s]"), OutSets.Num(), *SetNames);
     }
 
     inline void BuildEffectiveSpecsForClass(const UClass* Class,
@@ -78,24 +81,74 @@ namespace MetaWeaver::Aggregation
         TMap<FName, FMetadataParameterSpec> ByKey;
         for (const auto Set : OrderedSets)
         {
-            if (Set)
+            check(Set);
+            int Index{ 0 };
+            for (const auto& ParameterSet : Set->ParameterSets)
             {
-                for (const auto& Group : Set->ParameterSets)
+                UE_LOG(LogMetaWeaver,
+                       Verbose,
+                       TEXT("MetaWeaverMetadataDefinitionSet[%s].ParameterSet[%d] with "
+                            "ObjectType='%s' attempting to match class '%s'"),
+                       *GetNameSafe(Set),
+                       Index,
+                       *GetNameSafe(ParameterSet.ObjectType),
+                       *GetNameSafe(Class));
+
+                if (!ParameterSet.ObjectType || Class == ParameterSet.ObjectType.Get()
+                    || Class->IsChildOf(ParameterSet.ObjectType))
                 {
-                    if (!Group.ObjectType || Class->IsChildOf(Group.ObjectType))
+                    int ParameterIndex{ 0 };
+                    for (const auto& Parameter : ParameterSet.Parameters)
                     {
-                        for (const auto& Spec : Group.Parameters)
+                        if (!Parameter.Key.IsNone())
                         {
-                            if (!Spec.Key.IsNone())
+                            if (ByKey.Contains(Parameter.Key))
                             {
-                                // Last writer wins according to OrderedSets traversal order
-                                ByKey.FindOrAdd(Spec.Key) = Spec;
+                                UE_LOG(LogMetaWeaver,
+                                       Verbose,
+                                       TEXT("MetaWeaverMetadataDefinitionSet[%s].ParameterSet[%d].Parameters[%d].Key "
+                                            "'%s' is overriding an earlier key in specs."),
+                                       *Set->GetName(),
+                                       Index,
+                                       ParameterIndex,
+                                       *Parameter.Key.ToString());
                             }
+                            else
+                            {
+                                UE_LOG(LogMetaWeaver,
+                                       Verbose,
+                                       TEXT("MetaWeaverMetadataDefinitionSet[%s].ParameterSet[%d].Parameters[%d].Key "
+                                            "'%s' has been added to specs."),
+                                       *Set->GetName(),
+                                       Index,
+                                       ParameterIndex,
+                                       *Parameter.Key.ToString());
+                            }
+                            // Last writer wins according to OrderedSets traversal order
+                            ByKey.FindOrAdd(Parameter.Key) = Parameter;
                         }
+                        else
+                        {
+                            UE_LOG(LogMetaWeaver,
+                                   Warning,
+                                   TEXT("MetaWeaverMetadataDefinitionSet[%s].ParameterSet[%d].Parameters[%d].Key "
+                                        "is Empty. Ignoring."),
+                                   *Set->GetName(),
+                                   Index,
+                                   ParameterIndex);
+                        }
+                        ParameterIndex++;
                     }
                 }
+                Index++;
             }
         }
         ByKey.GenerateValueArray(OutSpecs);
+        const auto KeyNames = FString::JoinBy(OutSpecs, TEXT(", "), [](const auto& Set) { return Set.Key.ToString(); });
+        UE_LOG(LogMetaWeaver,
+               Verbose,
+               TEXT("MetadataParameterSpec's gathered for class '%s': [%s]"),
+               *GetNameSafe(Class),
+               *KeyNames);
     }
 } // namespace MetaWeaver::Aggregation
