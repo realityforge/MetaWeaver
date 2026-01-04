@@ -14,8 +14,7 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 
 ## Configure
 
-1. Project Settings → MetaWeaver → Active Definition Sets
-1. Add one or more `UMetaWeaverMetadataDefinitionSet` assets that define your metadata keys and types.
+1. Open `Project Settings → MetaWeaver → Active Definition Sets` and add one or more `UMetaWeaverMetadataDefinitionSet` assets.
    
    <figure>
      <img src="Images/ProjectSettings.png" alt="Project Settings window with MetaWeaver section selected, showing an array property called Active Definition Sets containing one UMetaWeaverMetadataDefinitionSet asset.">
