@@ -40,6 +40,11 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 
 1. Inline validation flags missing/invalid values.
 
+   <figure>
+     <img src="Images/Inline-Error.png" alt="A metadata cell showing inline validation error styling and an error message indicating why a commit failed (e.g., missing required key).">
+     <figcaption>Inline validation feedback</figcaption>
+   </figure>
+
 ## Bulk Editing (Matrix)
 - Select multiple assets in the Content Browser → Asset Actions → Bulk Edit Metadata…
 - Enable columns for keys you want to view/edit. Apply/Reset/Remove per column.
