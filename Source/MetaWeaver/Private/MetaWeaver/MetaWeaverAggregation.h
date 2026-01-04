@@ -96,5 +96,6 @@ namespace MetaWeaver::Aggregation
                 }
             }
         }
+        ByKey.GenerateValueArray(OutSpecs);
     }
 } // namespace MetaWeaver::Aggregation
