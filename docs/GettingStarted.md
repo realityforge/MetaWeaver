@@ -17,14 +17,14 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 1. Create one or more `UMetaWeaverMetadataDefinitionSet` assets to define your metadata schema.
 
    <figure>
-     <img src="Images/MetaDataSchemaAsset.png" alt="A MetaWeaverMetadataDefinitionSet asset that defines metadata schema for the project.">
+     <img src="Images/MetaDataSchemaAsset.png" alt="A MetaWeaverMetadataDefinitionSet asset that defines metadata schema for the project." width="100%">
      <figcaption>A MetaWeaverMetadataDefinitionSet asset that defines metadata schema for the project</figcaption>
   </figure>
 
 1. Open `Project Settings → MetaWeaver → Active Definition Sets` and add one or more `UMetaWeaverMetadataDefinitionSet` assets.
    
    <figure>
-     <img src="Images/ProjectSettings.png" alt="Project Settings window with MetaWeaver section selected, showing an array property called Active Definition Sets containing one UMetaWeaverMetadataDefinitionSet asset.">
+     <img src="Images/ProjectSettings.png" alt="Project Settings window with MetaWeaver section selected, showing an array property called Active Definition Sets containing one UMetaWeaverMetadataDefinitionSet asset." width="100%">
      <figcaption>Project Settings → MetaWeaver: add schema asset to “Active Definition Sets”.</figcaption>
   </figure>
 
@@ -33,21 +33,21 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 1. In the Content Browser, right‑click an asset → Asset Actions → Edit Metadata…
     
     <figure>
-      <img src="Images/ContextMenu.png" alt="Content Browser context menu open for an asset, Asset Actions submenu expanded showing 'Edit Metadata…' and 'Bulk Edit Metadata…' entries.">
+      <img src="Images/ContextMenu.png" alt="Content Browser context menu open for an asset, Asset Actions submenu expanded showing 'Edit Metadata…' and 'Bulk Edit Metadata…' entries." width="100%">
       <figcaption>Content Browser → Asset Actions</figcaption>
     </figure>
 
 1. Edit values using typed controls (Bool, Int, Float, String, Enum, Asset Reference).
 
    <figure>
-     <img src="Images/Editor-Single.png" alt="Single‑asset MetaWeaver editor showing a list of metadata keys with typed editors (checkbox for Bool, numeric fields for Int/Float, text box for String, dropdown for Enum, and asset picker for Asset Reference), plus row actions for Show in Content Browser and Open Asset Editor.">
+     <img src="Images/Editor-Single.png" alt="Single‑asset MetaWeaver editor showing a list of metadata keys with typed editors (checkbox for Bool, numeric fields for Int/Float, text box for String, dropdown for Enum, and asset picker for Asset Reference), plus row actions for Show in Content Browser and Open Asset Editor." width="100%">
      <figcaption>Single‑asset editor with typed controls and row actions (Show/Open)</figcaption>
    </figure>
 
 1. Inline validation flags missing/invalid values.
 
    <figure>
-     <img src="Images/Inline-Error.png" alt="A metadata cell showing inline validation error styling and an error message indicating why a commit failed (e.g., missing required key).">
+     <img src="Images/Inline-Error.png" alt="A metadata cell showing inline validation error styling and an error message indicating why a commit failed (e.g., missing required key)." width="100%">
      <figcaption>Inline validation feedback</figcaption>
    </figure>
 
@@ -57,17 +57,17 @@ This guide walks through installing MetaWeaver, enabling definition sets, and us
 - Row actions include Show in Content Browser and Open Asset Editor.
 
 <figure>
-  <img src="Images/Editor-Bulk.png" alt="Bulk metadata editor matrix view with an Assets column and multiple enabled metadata columns. Column headers show type‑specific editors (e.g., checkbox, numeric entry, enum dropdown). Each row shows asset name with Show and Open icons in separate columns to the left.">
+  <img src="Images/Editor-Bulk.png" alt="Bulk metadata editor matrix view with an Assets column and multiple enabled metadata columns. Column headers show type‑specific editors (e.g., checkbox, numeric entry, enum dropdown). Each row shows asset name with Show and Open icons in separate columns to the left." width="100%">
   <figcaption>Bulk editor matrix: demonstrate enabling columns, header typed editors, and per‑row Show/Open icons</figcaption>
 </figure>
 
 <figure>
-  <img src="Images/AssetRef-Picker.png" alt="Asset Reference picker UI open from a cell or header, showing a class filter restricting the asset type (e.g., only License assets).">
+  <img src="Images/AssetRef-Picker.png" alt="Asset Reference picker UI open from a cell or header, showing a class filter restricting the asset type (e.g., only License assets)." width="100%">
   <figcaption>Asset Reference picker with allowed class filter applied</figcaption>
 </figure>
 
 <figure>
-  <img src="Images/Enum-Editor.png" alt="Enum dropdown open showing a list of string values defined in the metadata definition set.">
+  <img src="Images/Enum-Editor.png" alt="Enum dropdown open showing a list of string values defined in the metadata definition set." width="100%">
   <figcaption>Enum editor dropdown populated from the definition’s string list</figcaption>
 </figure>
 
