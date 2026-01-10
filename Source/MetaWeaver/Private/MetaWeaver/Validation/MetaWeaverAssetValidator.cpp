@@ -30,14 +30,20 @@ bool UMetaWeaverAssetValidator::CanValidateAsset_Implementation(const FAssetData
                                                                 UObject* InObject,
                                                                 FDataValidationContext& InContext) const
 {
-    return nullptr != InObject;
+    return InObject != nullptr || InAssetData.IsValid();
 }
 
 EDataValidationResult UMetaWeaverAssetValidator::ValidateLoadedAsset_Implementation(const FAssetData& InAssetData,
                                                                                     UObject* InAsset,
                                                                                     FDataValidationContext& Context)
 {
-    if (!InAsset || !GEditor)
+    UObject* AssetToValidate = InAsset;
+    if (!AssetToValidate && InAssetData.IsValid())
+    {
+        AssetToValidate = InAssetData.GetAsset();
+    }
+
+    if (!AssetToValidate || !GEditor)
     {
         return EDataValidationResult::NotValidated;
     }
@@ -45,7 +51,7 @@ EDataValidationResult UMetaWeaverAssetValidator::ValidateLoadedAsset_Implementat
     {
         if (const auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
         {
-            const auto Report = Subsystem->ValidateAsset(InAsset);
+            const auto Report = Subsystem->ValidateAsset(AssetToValidate);
             auto bHasErrors = Report.bHasErrors;
 
             for (const auto& Issue : Report.Issues)
