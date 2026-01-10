@@ -77,7 +77,7 @@ Other editor modules can validate assets via the validation subsystem:
 ```c++
 if (GEditor)
 {
-    if (auto* Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
+    if (auto Subsystem = GEditor->GetEditorSubsystem<UMetaWeaverValidationSubsystem>())
     {
         const auto Report = Subsystem->ValidateAsset(Asset);
         // Inspect Report.Issues …
