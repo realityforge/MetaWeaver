@@ -35,6 +35,9 @@ Perfect for game teams, virtual production, enterprise pipelines, and any projec
 * **Pipeline-Ready**
   Ideal for artistic workflows, technical pipelines, automation tasks, and asset catalogs.
 
+* **Data Validation Integration**
+  Uses Unreal's Data Validation framework to validate metadata at scale.
+
 MetaWeaver brings powerful metadata tooling into the Unreal Editor — making your metadata as organized and reliable as the assets it describes.
 
 # Extended Feature Description
